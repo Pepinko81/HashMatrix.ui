@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+  --matrix-green: #00ff41;
+  --matrix-dark: #0a0a0a;
+  --matrix-glow: #00ff4133;
+  --matrix-text: #33ff33;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--matrix-dark);
+  font-family: 'Share Tech Mono', monospace;
+  color: var(--matrix-text);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.matrix-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    rgba(0, 255, 65, 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 3px 3px;
+  animation: scroll 20s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.logo-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+}
+
+.matrix-3d-logo {
+  display: inline-block;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 4rem;
+  color: var(--matrix-green);
+  text-shadow: 
+    0 0 5px rgba(0, 255, 65, 0.5),
+    0 0 10px rgba(0, 255, 65, 0.3);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.text-wrapper {
+  display: inline-block;
+  animation: rotate3d 8s linear infinite;
+  transform-style: preserve-3d;
+}
+
+.text-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.text-front {
+  color: var(--matrix-green);
+  transform: translateZ(20px);
+}
+
+.text-middle {
+  color: rgba(0, 255, 65, 0.5);
+  transform: translateZ(10px);
+}
+
+.text-back {
+  color: rgba(0, 255, 65, 0.2);
+  transform: translateZ(0);
+}
+
+.domain {
+  color: var(--matrix-text);
+  font-size: 0.8em;
+  text-shadow: 
+    0 0 5px rgba(51, 255, 51, 0.5),
+    0 0 10px rgba(51, 255, 51, 0.3);
+}
+
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0) rotateY(0) rotateZ(0);
+  }
+  100% {
+    transform: rotateX(60deg) rotateY(60deg) rotateZ(60deg);
+  }
+}
+
+@keyframes scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  z-index: 2;
+  padding: 2rem;
+  margin-top: 120px; /* Add space for fixed logo */
+}
+
+.matrix-3d-logo {
+  position: relative;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 4rem;
+  text-align: center;
+  color: #00ff41;
+  text-shadow: 
+    0 0 5px rgba(0, 255, 65, 0.5),
+    0 0 10px rgba(0, 255, 65, 0.3);
+  animation: matrix-glow 2s ease-in-out infinite alternate;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.matrix-3d-logo .text-wrapper {
+  display: inline-block;
+  transform: rotateX(20deg) rotateY(-20deg);
+  transition: transform 0.3s ease;
+}
+
+.matrix-3d-logo .text-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform-style: preserve-3d;
+}
+
+.matrix-3d-logo .text-front {
+  color: #00ff41;
+  transform: translateZ(10px);
+}
+
+.matrix-3d-logo .text-middle {
+  color: rgba(0, 255, 65, 0.5);
+  transform: translateZ(5px);
+}
+
+.matrix-3d-logo .text-back {
+  color: rgba(0, 255, 65, 0.2);
+  transform: translateZ(0);
+}
+
+.matrix-3d-logo .domain {
+  color: #33ff33;
+  font-size: 0.8em;
+  text-shadow: 
+    0 0 5px rgba(51, 255, 51, 0.5),
+    0 0 10px rgba(51, 255, 51, 0.3);
+}
+
+@keyframes matrix-glow {
+  0% {
+    text-shadow: 
+      0 0 5px rgba(0, 255, 65, 0.5),
+      0 0 10px rgba(0, 255, 65, 0.3);
+  }
+  100% {
+    text-shadow: 
+      0 0 10px rgba(0, 255, 65, 0.7),
+      0 0 20px rgba(0, 255, 65, 0.5),
+      0 0 30px rgba(0, 255, 65, 0.3);
+  }
+}
+
+.matrix-3d-logo:hover .text-wrapper {
+  transform: rotateX(25deg) rotateY(-25deg);
+}
+.bg-dark-gradient {
+  background: rgba(0, 10, 0, 0.85) !important;
+  border: 1px solid rgba(0, 255, 0, 0.2) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.1) !important;
+}
+
+.card {
+  background: rgba(0, 10, 0, 0.85) !important;
+  border: 1px solid rgba(0, 255, 0, 0.2) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.1) !important;
+}
+
+.card-stats .card-body {
+  padding: 15px !important;
+}
+
+.card-stats .icon-big {
+  color: rgba(0, 255, 0, 0.4) !important;
+}
+
+.card-stats .numbers p {
+  color: rgba(0, 255, 0, 0.7) !important;
+}
+
+.card-stats .numbers .card-title {
+  color: #00ff00 !important;
+}
+
+.card-title {
+  color: #00ff00 !important;
+}
+
+.table-head-bg-info thead th {
+  background: rgba(0, 255, 0, 0.1) !important;
+  color: rgba(0, 255, 0, 0.9) !important;
+}
+
+.table td, .table th {
+  color: rgba(0, 255, 0, 0.8) !important;
+  border-top: 1px solid rgba(0, 255, 0, 0.1) !important;
+}
+
+.table-hover tbody tr:hover {
+  background: rgba(0, 255, 0, 0.05) !important;
+}
+
+.btn-info {
+  background: rgba(0, 255, 0, 0.2) !important;
+  border-color: rgba(0, 255, 0, 0.4) !important;
+  color: #00ff00 !important;
+}
+
+.btn-info:hover {
+  background: rgba(0, 255, 0, 0.3) !important;
+  border-color: rgba(0, 255, 0, 0.5) !important;
+}
+
+.text-primary, .text-info, .text-success, .text-warning {
+  color: rgba(0, 255, 0, 0.8) !important;
+}
+
+.form-control {
+  background: rgba(0, 10, 0, 0.8) !important;
+  border: 1px solid rgba(0, 255, 0, 0.2) !important;
+  color: #00ff00 !important;
+}
+
+.form-control:focus {
+  border-color: rgba(0, 255, 0, 0.5) !important;
+  box-shadow: 0 0 5px rgba(0, 255, 0, 0.2) !important;
+}
+
+.input-group-text {
+  background: rgba(0, 255, 0, 0.1) !important;
+  border: 1px solid rgba(0, 255, 0, 0.2) !important;
+  color: rgba(0, 255, 0, 0.8) !important;
+}
+
+/* Enhanced Sidebar Styles */
+.sidebar {
+  background: rgba(0, 10, 0, 0.95) !important;
+  border-right: 1px solid rgba(0, 255, 0, 0.2) !important;
+  box-shadow: 2px 0 10px rgba(0, 255, 0, 0.1) !important;
+}
+
+.sidebar-wrapper {
+  background: rgba(0, 10, 0, 0.9) !important;
+  border-right: 1px solid rgba(0, 255, 0, 0.2) !important;
+}
+
+.sidebar .user {
+  border-bottom: 1px solid rgba(0, 255, 0, 0.2) !important;
+  padding: 20px !important;
+  background: rgba(0, 255, 0, 0.05) !important;
+}
+
+.sidebar .user h5 {
+  color: #00ff00 !important;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.3) !important;
+  font-family: 'Share Tech Mono', monospace !important;
+}
+
+.sidebar .nav-item {
+  margin: 5px 10px !important;
+  border-radius: 4px !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.sidebar .nav-item::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent) !important;
+  transition: 0.5s !important;
+}
+
+.sidebar .nav-item:hover::after {
+  left: 100% !important;
+}
+
+.sidebar .nav-item a {
+  color: rgba(0, 255, 0, 0.8) !important;
+  transition: all 0.3s ease !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  letter-spacing: 1px !important;
+}
+
+.sidebar .nav-item:hover {
+  background: rgba(0, 255, 0, 0.1) !important;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.1) !important;
+}
+
+.sidebar .nav-item.active {
+  background: rgba(0, 255, 0, 0.15) !important;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.15) !important;
+}
+
+.sidebar .nav-item.active a {
+  color: #00ff00 !important;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.5) !important;
+}
+
+.sidebar .nav-item i {
+  margin-right: 10px !important;
+  width: 25px !important;
+  text-align: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.sidebar .nav-item:hover i {
+  transform: scale(1.2) !important;
+  color: #00ff00 !important;
+}
+
+.sidebar .text-section {
+  color: rgba(0, 255, 0, 0.6) !important;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.2) !important;
+  margin: 15px 0 !important;
+  padding: 10px 20px !important;
+  font-family: 'Share Tech Mono', monospace !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  font-size: 0.8em !important;
+}
+
+.sidebar .sidebar-mini-icon {
+  color: rgba(0, 255, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.sidebar .nav-item:hover .sidebar-mini-icon {
+  color: #00ff00 !important;
+}
+
+.footer {
+  background: rgba(0, 10, 0, 0.85) !important;
+  border-top: 1px solid rgba(0, 255, 0, 0.1) !important;
+}
+
+.copyright {
+  color: rgba(0, 255, 0, 0.7) !important;
+}
+
+/* Chart customization */
+.ct-series-a .ct-line,
+.ct-series-a .ct-point {
+  stroke: #00ff00 !important;
+}
+
+.ct-grid {
+  stroke: rgba(0, 255, 0, 0.1) !important;
+}
+
+.ct-label {
+  color: rgba(0, 255, 0, 0.7) !important;
+}

@@ -4,9 +4,9 @@
   * Copyright 2021 Authors AlphaX Projects
 */
 
-var WebURL         = "https://xmr.solopool.pro/";
-var API            = "https://xmr.solopool.pro/api/";
-var stratumAddress = "stratum+tcp://xmr.solopool.pro";
+var WebURL         = "http://hashmatrix.de/";
+var API            = "http://hashmatrix.de:4000/api/";
+var stratumAddress = "stratum+tcp://hashmatrix.de";
 
 currentPage = "stats";
 
